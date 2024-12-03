@@ -1,0 +1,34 @@
+﻿<Window x:Class="IngatlanEF.IngatlanWindow.IngatlanModositWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IngatlanEF.IngatlanWindow"
+        mc:Ignorable="d"
+        Title="IngatlanModositWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="500"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <DataGrid Name="dgrIngatlanAdatok"/>
+        <StackPanel Grid.Column="1">
+            <Label Content="Település"/>
+            <TextBox Name="tbxTelepules"/>
+            <Label Content="Cím"/>
+            <TextBox Name="tbxCim"/>
+            <Label Content="Ár"/>
+            <TextBox Name="tbxAr"/>
+            <Label Content="Típus"/>
+            <ComboBox Name="cbxTipus"/>
+            <Label Content="Kép neve"/>
+            <TextBox Name="tbxKepNev"/>
+            <Label Content="Ügyintéző Id"/>
+            <ComboBox Name="cbxUgyId"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Content="Módosítások mentése"/>
+                <Button Content="Elvetés"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

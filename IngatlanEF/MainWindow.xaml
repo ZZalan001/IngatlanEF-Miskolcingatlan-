@@ -5,22 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IngatlanEF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="200" Width="300">
     <Grid>
-        <Menu>
-            <MenuItem Header="Belépés"/>
-            <MenuItem Header="Ingatlanok" IsEnabled="False">
-                <MenuItem Header="Ingatlanok listája"/>
-                <MenuItem Header="Ingatlanok felvitele"/>
-                <MenuItem Header="Ingatlanok módisítása"/>
-                <MenuItem Header="Ingatlanok törlése"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Menu VerticalAlignment="Center">
+            <MenuItem Header="Belépés" Name="mnuBelepes" Click="LogInOut"/>
+            <MenuItem Header="Ingatlanok" Name="mnuIngatlanok" IsEnabled="False">
+                <MenuItem Header="Ingatlanok listája" Click="IngatlanokListaja"/>
+                <MenuItem Header="Ingatlanok felvitele" Click="IngatlanokFelvetel"/>
+                <MenuItem Header="Ingatlanok módisítása" Click="IngatlanokModositasa"/>
+                <MenuItem Header="Ingatlanok törlése" Click="IngatlanokTorlese"/>
             </MenuItem>
-            <MenuItem Header="Ügyintézők" IsEnabled="False">
-                <MenuItem Header="Ügyintézők listája"/>
-                <MenuItem Header="Ügyintézők felvitele"/>
-                <MenuItem Header="Ügyintézők módisítása"/>
-                <MenuItem Header="Ügyintézők törlése"/>
+            <MenuItem Header="Ügyintézők" Name="mnuUgyintezok" IsEnabled="False">
+                <MenuItem Header="Ügyintézők listája" Click="UgyintezokListaja"/>
+                <MenuItem Header="Ügyintézők felvétele" Click="UgyintezokFelvetele"/>
+                <MenuItem Header="Ügyintézők módosítása" Click="UgyintezokModositas"/>
+                <MenuItem Header="Ügyintézők törlése" Click="UgyintezokTorlese"/>
             </MenuItem>
         </Menu>
+        <Label Name="lblBejelentkezve" Content="Bejelentkezve: " HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1"/>
     </Grid>
 </Window>
