@@ -31,5 +31,21 @@ namespace IngatlanEF.Services
                 }
             }
         }
+
+        public static void IngatlanInsert(Ingatlan ujIngatlan)
+        {
+            using (var context = new MiskolcingatlanContext()) 
+            {
+                try
+                {
+                    context.Ingatlans.Add(ujIngatlan);
+                    context.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    throw;
+                }
+                
+            }
     }
 }
