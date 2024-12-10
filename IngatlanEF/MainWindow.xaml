@@ -25,6 +25,9 @@
                 <MenuItem Header="Ügyintézők módosítása" Click="UgyintezokModositas"/>
                 <MenuItem Header="Ügyintézők törlése" Click="UgyintezokTorlese"/>
             </MenuItem>
+            <MenuItem Header="Export" Name="menuExport" Click="Export_Click"/>
+
+
         </Menu>
         <Label Name="lblBejelentkezve" Content="Bejelentkezve: " HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1"/>
     </Grid>

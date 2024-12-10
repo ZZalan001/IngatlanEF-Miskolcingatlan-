@@ -1,5 +1,7 @@
 ﻿using IngatlanEF.IngatlanWindow;
 using IngatlanEF.UgyintezoWindow;
+using Microsoft.Win32;
+using System.IO;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -45,6 +47,7 @@ namespace IngatlanEF
                 //aktiválom a két másik menüpontot
                 mnuIngatlanok.IsEnabled = true;
                 mnuUgyintezok.IsEnabled = true;
+                menuExport.IsEnabled = true;
                 //kiíratom a felhasználó nevét
                 lblBejelentkezve.Content = $"Bejelentkezve: {logName}";
                 mnuBelepes.Header = "Kijelentkezés";
@@ -99,6 +102,27 @@ namespace IngatlanEF
         {
             IngatlanTorlesWindow ingatlanTorlesWindow = new IngatlanTorlesWindow();
             ingatlanTorlesWindow.ShowDialog();
+        }
+
+        private void Export_Click(object sender, RoutedEventArgs e)
+        {
+            SaveFileDialog sfd = new SaveFileDialog()
+            {
+                FileName = "export.txt",
+                DefaultExt = "*.txt",
+                Filter = "txt|*.txt"
+            };
+            if (sfd.ShowDialog() == true)
+            {
+                if (File.Exists(sfd.FileName))
+                {
+                    MessageBox.Show("A fájl már létezik, felülírja?","Figyelmeztetés!",MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Nincs kiválasztott állomány");
+            }
         }
     }
 }
