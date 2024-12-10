@@ -21,25 +21,51 @@ namespace IngatlanEF.IngatlanWindow
     /// </summary>
     public partial class IngatlanFelvetelWindow : Window
     {
+        List<Ugyintezo> ugyintezoList = UgyintezoService.GetAllUgyintezo();
         public IngatlanFelvetelWindow()
         {
             InitializeComponent();
+            cbxTipus.ItemsSource = MainWindow.tipusok;
+            foreach (Ugyintezo ugyintezo in ugyintezoList)
+            {
+                cbxUgyintezo.Items.Add($"{ugyintezo.Id}: {ugyintezo.Nev}");
+            }
         }
 
         private void btnMentes_Click(object sender, RoutedEventArgs e)
         {
-            Ingatlan ujIngatlan = new()
+            int ujAr = 0;
+            int ujUgyi = 0;
+            if (int.TryParse(tbxAr.Text, out ujAr) && int.TryParse(cbxUgyintezo.Text, out ujUgyi))
             {
-                Id = 0,
-                Telepules = tbxTelepules.Text,
-                Cím = tbxCim.Text,
-                Ar = int.Parse(tbxAr.Text),
-                Tipus = cbxTipus.Text,
-                KepNev = tbxKepNev.Text,
-                UgyintezoId = int.Parse(cbxUgyintezo.Text)
-            };
-            IngatlanService.IngatlanInsert(ujIngatlan);
-            MessageBox.Show("Sikeres rögzítés");
+                Ingatlan ujIngatlan = new()
+                {
+                    Id = 0,
+                    Telepules = tbxTelepules.Text,
+                    Cím = tbxCim.Text,
+                    Ar = ujAr,
+                    Tipus = cbxTipus.Text,
+                    KepNev = tbxKepNev.Text,
+                    UgyintezoId = ujUgyi
+                };
+                IngatlanService.IngatlanInsert(ujIngatlan);
+                MessageBox.Show("Sikeres rögzítés");
+                tbxAr.Text = "";
+                tbxCim.Text = "";
+                tbxKepNev.Text = "";
+                tbxTelepules.Text = "";
+                cbxTipus.SelectedItem = "Beosztás alatt";
+                cbxUgyintezo.Text = "";
+            }
+            else
+            {
+                MessageBox.Show("Nem megfelelő ár vagy nincs kiválasztott ügyintéző!");
+            }
+        }
+
+        private void btnMegsem_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

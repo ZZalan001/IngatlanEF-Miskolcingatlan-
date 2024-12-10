@@ -30,7 +30,6 @@ namespace IngatlanEF
             {
                 MainWindow.logName = tbxFelhNev.Text;
                 MainWindow.isLogged = true;
-                MessageBox.Show("Sikeres belépés","Siker!",MessageBoxButton.OK,MessageBoxImage.Information);
                 Close();
             }
             else

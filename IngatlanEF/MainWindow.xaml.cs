@@ -21,6 +21,7 @@ namespace IngatlanEF
         public const string jelszo = "Ananasz";
         public static bool isLogged = false;
         public static string logName = "";
+        public static string[] tipusok = { "Lakóház", "Palota", "Építési telek","Raktárépület","Besorolás alatt" };
         public MainWindow()
         {
             InitializeComponent();

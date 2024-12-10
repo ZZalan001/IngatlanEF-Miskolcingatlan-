@@ -31,6 +31,7 @@ namespace IngatlanEF.Services
             }
         }
 
+
         
     }
 }

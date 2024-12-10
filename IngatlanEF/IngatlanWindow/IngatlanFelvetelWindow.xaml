@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IngatlanEF.IngatlanWindow"
         mc:Ignorable="d"
-        Title="IngatlanFelvetelWindow" Height="450" Width="800">
+        Title="IngatlanFelvetelWindow" Height="387" Width="693">
     <Grid>
         <StackPanel>
             <Label Content="Település"/>
@@ -20,9 +20,9 @@
             <TextBox Name="tbxKepNev"/>
             <Label Content="Ügyintéző id"/>
             <ComboBox Name="cbxUgyintezo"/>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
-                <Button Name="btnMentes" Content="Mentés" Click="btnMentes_Click"/>
-                <Button Name="btnMegsem" Content="Mégsem"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+                <Button Name="btnMentes" Content="Mentés" Click="btnMentes_Click" Margin="10" Width="80" Height="50"/>
+                <Button Name="btnMegsem" Content="Mégsem" Click="btnMegsem_Click" Margin="10" Width="80" Height="50"/>
             </StackPanel>
         </StackPanel>
     </Grid>
