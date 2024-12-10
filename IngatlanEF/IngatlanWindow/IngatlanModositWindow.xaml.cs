@@ -87,7 +87,7 @@ namespace IngatlanEF.IngatlanWindow
             {
                 Ingatlan ujIngatlan = new()
                 {
-                    Id = ,
+                    Id = 0,
                     Telepules = tbxTelepules.Text,
                     Cím = tbxCim.Text,
                     Ar = ujAr,

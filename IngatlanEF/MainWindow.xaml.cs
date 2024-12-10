@@ -1,4 +1,5 @@
 ﻿using IngatlanEF.IngatlanWindow;
+using IngatlanEF.Models;
 using IngatlanEF.UgyintezoWindow;
 using Microsoft.Win32;
 using System.IO;
@@ -116,7 +117,32 @@ namespace IngatlanEF
             {
                 if (File.Exists(sfd.FileName))
                 {
-                    MessageBox.Show("A fájl már létezik, felülírja?","Figyelmeztetés!",MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                    MessageBoxResult result =  MessageBox.Show("A fájl már létezik, felülírja?","Figyelmeztetés!",MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                    
+                    if(result == MessageBoxResult.Yes)
+                    {
+
+                        //using (var context = new MiskolcingatlanContext())
+                        //{
+                        //    try
+                        //    {
+                        //        List<Ingatlan> ingatlanok = context.Ingatlans.ToList();
+                        //        using (StreamWriter sw = new StreamWriter(sfd.FileName))
+                        //        {
+                        //            foreach (Ingatlan ingatlan in ingatlanok)
+                        //            {
+                        //                sw.WriteLine($"{ingatlan.Telepules}, {ingatlan.Cím}\n" + $"{ingatlan.Ar}");
+                        //            }
+                        //            sw.Close();
+                        //        }
+                        //    }
+                        //    catch
+                        //    {
+
+                        //    }
+                        //}
+                        
+                    }
                 }
             }
             else
