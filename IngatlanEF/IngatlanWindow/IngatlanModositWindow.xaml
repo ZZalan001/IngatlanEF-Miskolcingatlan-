@@ -13,6 +13,7 @@
         </Grid.ColumnDefinitions>
         <DataGrid Name="dgrIngatlanAdatok"/>
         <StackPanel Grid.Column="1">
+            <ComboBox Name="cbxSelect" SelectionChanged="cbxSelect_SelectionChanged"/>
             <Label Content="Település"/>
             <TextBox Name="tbxTelepules"/>
             <Label Content="Cím"/>
@@ -26,8 +27,8 @@
             <Label Content="Ügyintéző Id"/>
             <ComboBox Name="cbxUgyId"/>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button Content="Módosítások mentése" Name="btnMentes" Margin="10" Padding="10"/>
-                <Button Content="Mégsem" Name="btnMegsem" Margin="10" Padding="10"/>
+                <Button Content="Módosítások mentése" Name="btnMentes" Margin="10" Padding="10" Click="btnMentes_Click"/>
+                <Button Content="Mégsem" Name="btnMegsem" Margin="10" Padding="10" Click="btnMegsem_Click"/>
             </StackPanel>
         </StackPanel>
     </Grid>
