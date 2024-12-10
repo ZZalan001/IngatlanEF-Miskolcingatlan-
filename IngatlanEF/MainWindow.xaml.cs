@@ -84,17 +84,20 @@ namespace IngatlanEF
 
         private void IngatlanokFelvetel(object sender, RoutedEventArgs e)
         {
-
+            IngatlanFelvetelWindow ingatlanFelvetelWindow = new IngatlanFelvetelWindow();
+            ingatlanFelvetelWindow.ShowDialog();
         }
 
         private void IngatlanokModositasa(object sender, RoutedEventArgs e)
         {
-
+            IngatlanModositWindow ingatlanModositWindow = new IngatlanModositWindow();
+            ingatlanModositWindow.ShowDialog();
         }
 
         private void IngatlanokTorlese(object sender, RoutedEventArgs e)
         {
-
+            IngatlanTorlesWindow ingatlanTorlesWindow = new IngatlanTorlesWindow();
+            ingatlanTorlesWindow.ShowDialog();
         }
     }
 }

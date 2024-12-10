@@ -7,6 +7,23 @@
         mc:Ignorable="d"
         Title="IngatlanFelvetelWindow" Height="450" Width="800">
     <Grid>
-        
+        <StackPanel>
+            <Label Content="Település"/>
+            <TextBox Name="tbxTelepules"/>
+            <Label Content="Cím"/>
+            <TextBox Name="tbxCim"/>
+            <Label Content="Ár"/>
+            <TextBox Name="tbxAr"/>
+            <Label Content="Típus"/>
+            <ComboBox Name="cbxTipus"/>
+            <Label Content="Kép név"/>
+            <TextBox Name="tbxKepNev"/>
+            <Label Content="Ügyintéző id"/>
+            <ComboBox Name="cbxUgyintezo"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+                <Button Name="btnMentes" Content="Mentés" Click="btnMentes_Click"/>
+                <Button Name="btnMegsem" Content="Mégsem"/>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Window>

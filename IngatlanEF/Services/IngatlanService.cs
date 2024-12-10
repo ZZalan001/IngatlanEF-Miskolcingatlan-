@@ -34,7 +34,7 @@ namespace IngatlanEF.Services
 
         public static void IngatlanInsert(Ingatlan ujIngatlan)
         {
-            using (var context = new MiskolcingatlanContext()) 
+            using (var context = new MiskolcingatlanContext())
             {
                 try
                 {
@@ -45,7 +45,8 @@ namespace IngatlanEF.Services
                 {
                     throw;
                 }
-                
+
             }
+        }
     }
 }
