@@ -87,7 +87,7 @@ namespace IngatlanEF.IngatlanWindow
             {
                 Ingatlan ujIngatlan = new()
                 {
-                    Id = 0,
+                    Id = int.Parse(cbxSelect.SelectedItem.ToString().Split(':')[0]),
                     Telepules = tbxTelepules.Text,
                     Cím = tbxCim.Text,
                     Ar = ujAr,
@@ -97,6 +97,7 @@ namespace IngatlanEF.IngatlanWindow
                 };
                 IngatlanService.IngatlanUpdate(ujIngatlan);
                 MessageBox.Show("Sikeres rögzítés");
+                CbxSelectFeltolt();
             }
             CbxSelectFeltolt();
         }

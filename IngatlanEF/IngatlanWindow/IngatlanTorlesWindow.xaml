@@ -7,6 +7,29 @@
         mc:Ignorable="d"
         Title="IngatlanTorlesWindow" Height="450" Width="800">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="500"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <DataGrid Name="dgrIngatlanAdatok"/>
+        <StackPanel Grid.Column="1">
+            <ComboBox Name="cbxSelect" SelectionChanged="cbxSelect_SelectionChanged"/>
+            <Label Content="Település"/>
+            <TextBox Name="tbxTelepules" IsEnabled="False"/>
+            <Label Content="Cím"/>
+            <TextBox Name="tbxCim" IsEnabled="False"/>
+            <Label Content="Ár"/>
+            <TextBox Name="tbxAr" IsEnabled="False"/>
+            <Label Content="Típus"/>
+            <ComboBox Name="cbxTipus" IsEnabled="False"/>
+            <Label Content="Kép neve"/>
+            <TextBox Name="tbxKepNev" IsEnabled="False"/>
+            <Label Content="Ügyintéző Id"/>
+            <ComboBox Name="cbxUgyId" IsEnabled="False"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Content="Törlés" Name="btnTorles" Margin="10" Padding="10" Click="btnTorles_Click"/>
+                <Button Content="Mégsem" Name="btnMegsem" Margin="10" Padding="10" Click="btnMegsem_Click"/>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Window>

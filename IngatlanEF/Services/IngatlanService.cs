@@ -64,5 +64,26 @@ namespace IngatlanEF.Services
                 }
             }
         }
+
+        public static void IngatlanDelete(int id)
+        {
+            using (var context = new MiskolcingatlanContext())
+            {
+                try
+                {
+                    Ingatlan torlendo = new Ingatlan()
+                    {
+                        Id = id
+                    };
+                    context.Ingatlans.Remove(torlendo);
+                    context.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    throw;
+                }
+            }
+        }
+
     }
 }

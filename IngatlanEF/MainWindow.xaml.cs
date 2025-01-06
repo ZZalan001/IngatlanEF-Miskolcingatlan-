@@ -24,7 +24,7 @@ namespace IngatlanEF
         public const string jelszo = "a";
         public static bool isLogged = false;
         public static string logName = "";
-        public static string[] tipusok = { "Lakóház", "Palota", "Építési telek","Raktárépület","Besorolás alatt" };
+        public static string[] tipusok = { "Lakóház", "Palota", "Építési telek","Raktárépület","Besorolás alatt","Panel", "Csarnok" };
         public MainWindow()
         {
             InitializeComponent();
@@ -117,37 +117,46 @@ namespace IngatlanEF
             {
                 if (File.Exists(sfd.FileName))
                 {
-                    MessageBoxResult result =  MessageBox.Show("A fájl már létezik, felülírja?","Figyelmeztetés!",MessageBoxButton.YesNo, MessageBoxImage.Warning);
-                    
-                    if(result == MessageBoxResult.Yes)
+                    MessageBoxResult result = MessageBox.Show("A fájl már létezik, felülírja?", "Figyelmeztetés", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                    if (result == MessageBoxResult.Yes)
                     {
+                        SaveIngatlansAs(sfd);
 
-                        //using (var context = new MiskolcingatlanContext())
-                        //{
-                        //    try
-                        //    {
-                        //        List<Ingatlan> ingatlanok = context.Ingatlans.ToList();
-                        //        using (StreamWriter sw = new StreamWriter(sfd.FileName))
-                        //        {
-                        //            foreach (Ingatlan ingatlan in ingatlanok)
-                        //            {
-                        //                sw.WriteLine($"{ingatlan.Telepules}, {ingatlan.Cím}\n" + $"{ingatlan.Ar}");
-                        //            }
-                        //            sw.Close();
-                        //        }
-                        //    }
-                        //    catch
-                        //    {
-
-                        //    }
-                        //}
-                        
                     }
+                }
+                else
+                {
+                    SaveIngatlansAs(sfd);
                 }
             }
             else
             {
-                MessageBox.Show("Nincs kiválasztott állomány");
+                MessageBox.Show("Nincs kiválasztott állomány!");
+            }
+        }
+
+        private static void SaveIngatlansAs(SaveFileDialog sfd)
+        {
+            using (var context = new MiskolcingatlanContext())
+            {
+                try
+                {
+                    List<Ingatlan> ingatlanok = context.Ingatlans.ToList();
+                    using (StreamWriter sw = new StreamWriter(sfd.FileName))
+                    {
+                        foreach (Ingatlan ingatlan in ingatlanok)
+                        {
+                            sw.WriteLine($"{ingatlan.Telepules}, {ingatlan.Cím}\n" +
+                                $"{ingatlan.Ar}");
+                        }
+                        sw.Close();
+                    }
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
             }
         }
     }
